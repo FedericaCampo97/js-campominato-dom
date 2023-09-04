@@ -41,5 +41,6 @@ function isSafe(){
 }
 function isBomb(){
     this.style.background = 'red'
-
+    let popUp = document.getElementById('end_block');
+    popUp.classList.remove("d-none")
 }
