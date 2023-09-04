@@ -3,7 +3,11 @@ const btn = document.getElementById('btn')
 //aggiungo la funziona sul click del bottone
 btn.addEventListener("click", generateGrid);
 
+
+
 function generateGrid() {
+    //disabilito il pulsante per non creare altre gliglie
+    btn.disabled = true;
     //Genero 16 numeri random che non si ripetono
     const arrayBombs = []
     while (arrayBombs.length < 16) {
@@ -37,4 +41,5 @@ function isSafe(){
 }
 function isBomb(){
     this.style.background = 'red'
+
 }
