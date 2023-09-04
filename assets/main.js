@@ -20,29 +20,21 @@ function generateGrid() {
         //aggiungo la classe cell
         cellElement.className = 'cell';
         cellElement.append(i+1)
-
-        if (arrayBombs.indexOf(i) >= 0) {
-            //Aggiungo una funzione al click della cella
-            cellElement.addEventListener('click', function () {
-                //Mostro in console il numero cliccato
-                console.log('ho cliccato sulla cella numero:', i + 1);
-                //Cambio il background della cella
-                this.style.background = 'red'
-            })
-        }
-        else{
-            //Aggiungo una funzione al click della cella
-            cellElement.addEventListener('click', function () {
-                //Mostro in console il numero cliccato
-                console.log('ho cliccato sulla cella numero:', i + 1);
-                //Cambio il background della cella
-                this.style.background = 'aqua'
-            })
-        }
         //Appendo l'elemento al mio container
         container.append(cellElement)
-        
+        if (arrayBombs.indexOf(i + 1) >= 0) {
+            cellElement.addEventListener('click', isBomb)
+        }
+        else{
+            cellElement.addEventListener('click', isSafe)
+        } 
         
     }
         
+}
+function isSafe(){
+    this.style.background = 'aqua'
+}
+function isBomb(){
+    this.style.background = 'red'
 }
