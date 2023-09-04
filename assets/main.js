@@ -1,5 +1,6 @@
 //Ricavo l'elemento button
 const btn = document.getElementById('btn')
+let totalPoints = 0
 //aggiungo la funziona sul click del bottone
 btn.addEventListener("click", generateGrid);
 
@@ -34,13 +35,21 @@ function generateGrid() {
         } 
         
     }
-        
 }
+
 function isSafe(){
     this.style.background = 'aqua'
+    totalPoints = totalPoints + 1
+    if (totalPoints == 84) {
+        document.getElementById('title').innerHTML = 'Hai vinto!'
+        document.getElementById('score').innerHTML = totalPoints
+        let popUp = document.getElementById('end_block');
+        popUp.classList.remove("d-none")
+    }
 }
 function isBomb(){
     this.style.background = 'red'
     let popUp = document.getElementById('end_block');
     popUp.classList.remove("d-none")
+    document.getElementById('score').innerHTML = totalPoints
 }
