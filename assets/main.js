@@ -25,3 +25,10 @@ function generateGrid() {
         })
     }
 }
+//Genero 16 numeri random che non si ripetono
+const arrayBombs = []
+while (arrayBombs.length < 16) {
+    let number = Math.floor(Math.random() * 100) + 1;
+    if(arrayBombs.indexOf(number) === -1) arrayBombs.push(number);
+}
+console.log(arrayBombs)
